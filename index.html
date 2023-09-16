@@ -1,28 +1,29 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <!-- A-Frameを読み込む -->
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <title>Hello A-Frame</title>
+    <!-- AR.jsを読み込む -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   </head>
-
-  <body>
-    <a-scene>
-      <a-sky
-        color="#DDEEFF"
-      >
-      </a-sky>
-      <a-box
-        color="#4488FF"
-        position="0 0 0"
-        rotation="0 0 0"
-        animation="property: rotation; to: 360 360 0; dur: 4000; easing: linear; loop: true"
-      >
-      </a-box>
-      <a-camera
-        position="0 0 2"
-      >
-      </a-camera>
+  <body style="margin: 0; overflow: hidden">
+    <!-- シーンの作成、VRモードのUI非表示 -->
+    <a-scene embedded arjs vr-mode-ui="enabled: false">
+      <a-assets>
+        <!-- 3Dモデルを読み込む -->
+        <a-asset-item id="merengue_torako" src="CardAR02.glb" scale="1 1 1"></a-asset-item>
+      </a-assets>
+      <!-- マーカーを設定する -->
+      <a-marker type="pattern" url="pattern-QR_852531.patt">
+        <!-- 3Dモデルを呼び出す -->
+        <a-entity gltf-model="#merengue_torako" rotation="-90 0 0"></a-entity>
+      </a-marker>
+      <!-- カメラを追加 -->
+      <a-entity camera></a-entity>
     </a-scene>
   </body>
+  <script>
+      //glTFの表示が暗くなる問題に対処
+      document.querySelector("a-scene").renderer.gammaOutput=true;
+  </script>
 </html>
