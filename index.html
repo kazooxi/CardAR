@@ -5,6 +5,7 @@
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <!-- AR.jsを読み込む -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden">
     <!-- シーンの作成、VRモードのUI非表示 -->
@@ -12,11 +13,15 @@
       <a-assets>
         <!-- 3Dモデルを読み込む -->
         <a-asset-item id="merengue_torako" src="CardAR02.glb" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="CardAR_Xlogo" src="CardAR_Xlogo.glb" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="CardAR_Boothlogo" src="CardAR_Boothlogo.glb" scale="1 1 1"></a-asset-item>
       </a-assets>
       <!-- マーカーを設定する -->
       <a-marker type="pattern" url="pattern-QR_858016.patt">
         <!-- 3Dモデルを呼び出す -->
         <a-entity gltf-model="#merengue_torako" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="#CardAR_Xlogo" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="#CardAR_Boothlogo" rotation="0 0 0"></a-entity>
       </a-marker>
       <a-light type="ambient" color="#FFA57A"></a-light>
       <!-- カメラを追加 -->
